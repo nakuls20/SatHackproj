@@ -1,0 +1,170 @@
+/* General Styles */
+body {
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e1e9ec;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    color: rgb(16, 16, 16);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: rgb(16, 15, 15);
+    font-family:'Times New Roman', Times, serif;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #171616;
+}
+
+/* Dropdown Menu Styling */
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the parent menu item */
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    z-index: 1000;
+    border: 2px solid black; /* Black border around the dropdown */
+    border-radius: 5px; /* Optional: Round corners for the border */
+}
+
+.dropdown-menu li {
+    padding: 5px 15px;
+    text-align: left;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu li a:hover {
+    color: #007bff;
+}
+
+/* Sub Dropdown Menu */
+.sub-dropdown:hover .sub-dropdown-menu {
+    display: block;
+}
+
+.sub-dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    left: 100%; /* Position the sub-menu to the right of the parent menu item */
+    top: 0;
+    background-color: #f1f1f1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+    border: 2px solid black; /* Black border for the sub-menu */
+    border-radius: 5px;
+}
+
+.sub-dropdown-menu li {
+    padding: 5px 15px;
+    text-align: left;
+}
+
+.sub-dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.sub-dropdown-menu li a:hover {
+    color: #007bff;
+}
+
+
+
+
+/* Crop Field Banner Styling */
+.banner-img {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Preserve the aspect ratio */
+    width: 100vw; /* Ensure the width spans the entire viewport */
+    height: 100vh; /* Optional: Set full height for the viewport */
+    overflow-x: hidden;
+}
+
+.slogan {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 15%; /* Position slogan to the left */
+    transform: translate(0, -50%); /* Adjust vertical centering */
+    color: rgb(27, 27, 27);
+    font-size: 45px;
+    font-weight: bold;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    padding: 10px 20px;
+    border-radius: 10px;
+}

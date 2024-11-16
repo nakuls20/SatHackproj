@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mock Price Predictor</h1>
+        <form id="predict-form">
+            <label for="days">Number of Days for Prediction:</label>
+            <input type="number" id="days" name="days" required min="1">
+            
+            <label for="threshold">Threshold Value:</label>
+            <input type="number" id="threshold" name="threshold" required step="0.01">
+            
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result">
+            <h2>Prediction Results</h2>
+            <img id="graph" alt="Graph will appear here">
+            <ul id="values"></ul>
+        </div>
+    </div>
+    <script>
+        document.getElementById("predict-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const days = document.getElementById("days").value;
+            const threshold = document.getElementById("threshold").value;
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ days, threshold })
+            });
+
+            const result = await response.json();
+            document.getElementById("graph").src = result.graph;
+
+            const valuesList = document.getElementById("values");
+            valuesList.innerHTML = "";
+            result.values.forEach((value, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = Day ${index + 1}: ${value.toFixed(2)};
+                valuesList.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>
